@@ -17,7 +17,7 @@ export function Hero() {
             <span className="text-gradient-brand">para tu celular.</span>
           </h1>
           <p className="mt-6 text-muted-foreground max-w-lg text-base sm:text-lg">
-            Accesorios premium con estética futurista. Fundas, cargadores,
+            Accesorios premium. Fundas, cargadores,
             auriculares y más — diseñados para brillar.
           </p>
 
@@ -37,8 +37,8 @@ export function Hero() {
           </div>
 
           <dl className="mt-12 grid grid-cols-3 max-w-md gap-6">
-            <Stat value="+2K" label="Productos" gradient="from-cyan-neon to-violet-neon" />
-            <Stat value="50+" label="Marcas" gradient="from-violet-neon to-magenta-neon" />
+            <Stat value="+50" label="Productos" gradient="from-cyan-neon to-violet-neon" />
+            <Stat value="10" label="Marcas" gradient="from-violet-neon to-magenta-neon" />
             <Stat value="4.9★" label="Rating" gradient="from-magenta-neon to-cyan-neon" />
           </dl>
         </div>
@@ -49,7 +49,7 @@ export function Hero() {
           <div className="relative h-full w-full grid place-items-center">
             <div className="glass rounded-[2rem] w-full h-full grid place-items-center overflow-hidden ring-brand">
               <img
-                src="/assets/images/placeholder.svg"
+                src="/assets/images/robotibete.png"
                 alt="Accesorio premium"
                 className="w-3/4 h-3/4 object-contain drop-shadow-[0_0_40px_rgba(168,85,247,0.5)]"
                 loading="eager"
