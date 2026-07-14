@@ -223,4 +223,23 @@ export const PRODUCTS: Product[] = [
     isNew: false,
     isOffer: true,
   },
+  {
+    id: 9,
+    name: "Auriculares JBL Tune 520"
+    brand: "JBL",
+    category: "auriculares",
+    compatibility: "Universal",
+    price: 135000
+    oldPrice: 150000,
+    stock: 5,
+    rating: 4,
+    reviews: 15,
+    material: "Policarbonato",
+    color: "#0b0b0b",
+    description:
+     "Auriculares Inalambricos con Bluetooth 5.0
+    image: "/assets/images/auricularesjblgrandes.jpg",
+    isNew: true
+    isOffer: false
+  },
 ];
