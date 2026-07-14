@@ -54,7 +54,7 @@ export const CATEGORIES = [
 ] as const;
 
 export const BRANDS = [
-  "Apple", "Samsung", "Motorola", "Huawei", "JBL", "Anker", "Xiaomi", "Sony",
+  "Apple", "Samsung", "Motorola", "Huawei", "JBL", "Xiaomi",
 ] as const;
 
 export const COMPATIBILITY = [
@@ -73,22 +73,22 @@ export const COLOR_SWATCHES = [
 export const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: "Power Bank 20.000mAh — Anker",
-    brand: "Anker",
+    name: "Power Bank Mag-Safe — iphone",
+    brand: "Apple",
     category: "power-bank",
-    compatibility: "Moto G",
-    price: 34490,
-    oldPrice: 43113,
-    stock: 6,
+    compatibility: "iphone",
+    price: 95.000,
+    oldPrice: 100000,
+    stock: 5,
     rating: 4,
-    reviews: 398,
-    material: "Silicona",
-    color: "#0b0b0b",
+    reviews: 51,
+    material: "Poliestireno",
+    color: "#ffffff",
     description:
-      "Accesorio premium power bank 20.000mah de Anker. Compatible con Moto G. Diseño futurista y materiales de alta calidad.",
-    image: "/assets/images/placeholder.svg",
-    isNew: false,
-    isOffer: true,
+      "Accesorio premium Bateria Magnetica de Apple, Power-Bank con MagSafe",
+    image: "/assets/images/powerbankapplemagsafe.jpg",
+    isNew: true,
+    isOffer: false,
   },
   {
     id: 2,
