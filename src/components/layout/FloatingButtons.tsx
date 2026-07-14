@@ -15,7 +15,7 @@ export function FloatingButtons() {
         <Instagram className="h-6 w-6 text-white" />
       </FloatingBtn>
       <FloatingBtn
-        href="https://wa.me/5490000000000"
+        href="https://wa.me/+5492215749478"
         label="Escribinos por WhatsApp"
         className="bg-[#25D366] shadow-[0_0_30px_-6px_#25D366]"
       >
