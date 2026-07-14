@@ -1,24 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ShopProvider } from "@/context/ShopContext";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { FloatingButtons } from "@/components/layout/FloatingButtons";
+import { Hero } from "@/components/sections/Hero";
+import { Categories } from "@/components/sections/Categories";
+import { Brands } from "@/components/sections/Brands";
+import { ProductGrid } from "@/components/products/ProductGrid";
+import { QuickView } from "@/components/products/QuickView";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { FiltersPanel } from "@/components/filters/FiltersPanel";
+import { SearchModal } from "@/components/search/SearchModal";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "iBITE — Accesorios premium para tu celular" },
+      { name: "description", content: "Fundas, cargadores, auriculares, power banks y más. Diseño futurista, envíos a todo el país." },
+      { property: "og:title", content: "iBITE — Accesorios premium para tu celular" },
+      { property: "og:description", content: "Fundas, cargadores, auriculares y más. Diseño futurista, envíos a todo el país." },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ShopProvider>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+          <Hero />
+          <Categories />
+          <ProductGrid />
+          <Brands />
+        </main>
+        <Footer />
+
+        {/* Overlays */}
+        <QuickView />
+        <CartDrawer />
+        <FiltersPanel />
+        <SearchModal />
+        <FloatingButtons />
+      </div>
+    </ShopProvider>
   );
 }
