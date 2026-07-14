@@ -18,7 +18,7 @@ export function Footer() {
           <h4 className="text-[11px] tracking-[0.25em] uppercase font-bold text-muted-foreground">Contacto</h4>
           <div className="mt-3 flex gap-2">
             <a href="https://www.instagram.com/ibite_accesorios/" target="_blank" rel="noreferrer" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-magenta"><Instagram className="h-4 w-4" /></a>
-            <a href="https://wa.me/5490000000000" target="_blank" rel="noreferrer" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-brand"><MessageCircle className="h-4 w-4" /></a>
+            <a href="https://wa.me/5492215749478" target="_blank" rel="noreferrer" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-brand"><MessageCircle className="h-4 w-4" /></a>
             <a href="mailto:ibiteaccesorios@gmail.com" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-cyan"><Mail className="h-4 w-4" /></a>
           </div>
         </div>
@@ -26,7 +26,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-4 py-4 text-xs text-muted-foreground flex justify-between flex-wrap gap-2">
           <span>© {new Date().getFullYear()} iBITE Accesorios</span>
-          <span>© Hecho con CodeCubo.</span>
+          <span>© Hecho por CodeCubo.</span>
         </div>
       </div>
     </footer>
