@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
     brand: "Apple",
     category: "power-bank",
     compatibility: "iphone",
-    price: 95.000,
+    price: 950000,
     oldPrice: 100000,
     stock: 5,
     rating: 4,
