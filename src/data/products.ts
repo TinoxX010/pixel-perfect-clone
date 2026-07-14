@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
     brand: "Apple",
     category: "power-bank",
     compatibility: "iphone",
-    price: 950000,
+    price: 95000,
     oldPrice: 100000,
     stock: 5,
     rating: 4,
@@ -224,22 +224,22 @@ export const PRODUCTS: Product[] = [
     isOffer: true,
   },
   {
-    id: 9,
-    name: "Auriculares JBL Tune 520"
+    id: 8,
+    name: "Auriculares JBL Tune",
     brand: "JBL",
-    category: "auriculares",
+    category: "Auriculares",
     compatibility: "Universal",
-    price: 135000
-    oldPrice: 150000,
-    stock: 5,
-    rating: 4,
-    reviews: 15,
-    material: "Policarbonato",
+    price: 135000,
+    oldPrice:150000,
+    stock: 6,
+    rating: 5,
+    reviews: 14,
+    material: "Plastico Premium",
     color: "#0b0b0b",
     description:
-     "Auriculares Inalambricos con Bluetooth 5.0
+      "Auriculares JBL tune 520 Bluetooth",
     image: "/assets/images/auricularesjblgrandes.jpg",
-    isNew: true
-    isOffer: false
+    isNew: true,
+    isOffer: true,
   },
 ];
