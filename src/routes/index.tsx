@@ -16,9 +16,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "iBITE — Accesorios premium para tu celular" },
-      { name: "description", content: "Fundas, cargadores, auriculares, power banks y más. Diseño futurista, envíos a todo el país." },
+      { name: "description", content: "Fundas, cargadores, auriculares, power banks y más. envíos a todo el país." },
       { property: "og:title", content: "iBITE — Accesorios premium para tu celular" },
-      { property: "og:description", content: "Fundas, cargadores, auriculares y más. Diseño futurista, envíos a todo el país." },
+      { property: "og:description", content: "Fundas, cargadores, auriculares y más. envíos a todo el país." },
     ],
   }),
   component: Home,
