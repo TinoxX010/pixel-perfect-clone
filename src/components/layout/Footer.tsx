@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <div className="font-display text-2xl font-black">i<span className="text-gradient-brand">BITE</span></div>
           <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-            Accesorios premium con estética futurista. Diseñados para brillar.
+            Accesorios premium. Diseñados para brillar.
           </p>
         </div>
 
@@ -19,14 +19,14 @@ export function Footer() {
           <div className="mt-3 flex gap-2">
             <a href="https://www.instagram.com/ibite_accesorios/" target="_blank" rel="noreferrer" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-magenta"><Instagram className="h-4 w-4" /></a>
             <a href="https://wa.me/5490000000000" target="_blank" rel="noreferrer" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-brand"><MessageCircle className="h-4 w-4" /></a>
-            <a href="mailto:hola@ibite.com" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-cyan"><Mail className="h-4 w-4" /></a>
+            <a href="mailto:ibiteaccesorios@gmail.com" className="h-10 w-10 grid place-items-center rounded-full glass hover:glow-cyan"><Mail className="h-4 w-4" /></a>
           </div>
         </div>
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-4 py-4 text-xs text-muted-foreground flex justify-between flex-wrap gap-2">
           <span>© {new Date().getFullYear()} iBITE Accesorios</span>
-          <span>Hecho con estética neon.</span>
+          <span>© Hecho con CodeCubo.</span>
         </div>
       </div>
     </footer>
