@@ -10,7 +10,7 @@ export function FAQ() {
     },
     {
       pregunta: "¿Los productos tienen garantía?",
-      respuesta: "Sí, todos poseen garantía por fallas de fabricación."
+      respuesta: "Sí, todos poseen garantía solo por fallas de fabricación o envio."
     },
     {
       pregunta: "¿Cuánto demora el envío?",
