@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
     color: "#ffffff",
     description:
       "Accesorio premium Bateria Magnetica de Apple, Power-Bank con MagSafe",
-    image: "/assets/applecargadormagsafe.jpg",
+    image: "/assets/images/applecargadormagsafe.jpg",
     isNew: true,
     isOffer: false,
   },
@@ -105,7 +105,7 @@ export const PRODUCTS: Product[] = [
     color: "#ffffff",
     description:
       "Cargador ultra-rápido GaN 30W con doble USB-C. Carga tu celular y tablet con un solo dispositivo.",
-    image: "/assets/cargadormarcarara.jpg",
+    image: "/assets/images/cargadormarcarara.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -126,7 +126,7 @@ export const PRODUCTS: Product[] = [
     color: "#ec4899",
     description:
       "Auriculares in-ear con cancelación activa de ruido, hasta 40h de batería y sonido JBL Pure Bass.",
-    image: "/assets/redmibudsa6.jpg",
+    image: "/assets/images/redmibudsa6.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -145,7 +145,7 @@ export const PRODUCTS: Product[] = [
     color: "#0b0b0b",
     description:
       "Parlante JBL GO Essential Perfecto para trnasportar y con potencia espectacular!.",
-    image: "/assets/jblparlantechiquito.jpg",
+    image: "/assets/images/jblparlantechiquito.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -164,7 +164,7 @@ export const PRODUCTS: Product[] = [
     color: "#ffffff",
     description:
       "Cable trenzado ultra resistente, carga rápida hasta 20W. Compatible con toda la línea iPhone y iPad.",
-    image: "/assets/cargadorcompletodeiphone.jpg",
+    image: "/assets/images/cargadorcompletodeiphone.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -183,7 +183,7 @@ export const PRODUCTS: Product[] = [
     color: "#0b0b0b",
     description:
       "Reloj inteligente con AMOLED 1.6\", 100+ modos de deporte, GPS y hasta 13 días de batería.",
-    image: "/assets/relojinteligentesamsumg.jpg",
+    image: "/assets/images/relojinteligentesamsumg.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -202,7 +202,7 @@ export const PRODUCTS: Product[] = [
     color: "#0b0b0b",
     description:
       "Reloj Inteligente perfecto para Deportes",
-    image: "/assets/relojlindosmart.jpg",
+    image: "/assets/images/relojlindosmart.jpg",
     isNew: true,
     isOffer: true,
   },
@@ -221,7 +221,7 @@ export const PRODUCTS: Product[] = [
     color: "#ec4899",
     description:
       "Reloj Inteligente perfecto para Deportes, con Nicton NT07 Android IOS",
-    image: "/assets/smartwatchdeportivo.jpg",
+    image: "/assets/images/smartwatchdeportivo.jpg",
     isNew: true,
     isOffer: true,
   },
