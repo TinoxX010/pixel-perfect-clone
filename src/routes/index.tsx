@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FAQ } from "@/components/sections/FAQ";
 import { ShopProvider } from "@/context/ShopContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
