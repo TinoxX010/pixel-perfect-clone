@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
     color: "#ffffff",
     description:
       "Accesorio premium Bateria Magnetica de Apple, Power-Bank con MagSafe",
-    image: "/assets/images/applecargadormagsafe.jpg",
+    image: "/assets/images/magsafeiphoneportatil.jpg",
     isNew: true,
     isOffer: false,
   },
