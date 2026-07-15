@@ -22,7 +22,6 @@ const NAV = [
   { label: "Productos", hash: "#productos" },
   { label: "Ofertas", hash: "#ofertas" },
   { label: "Marcas", hash: "#marcas" },
-  { label: "Preguntas Frecuentes", hash: "#faq" },
   { label: "Contacto", hash: "#contacto" },
 ];
 
