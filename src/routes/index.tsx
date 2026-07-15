@@ -35,6 +35,7 @@ function Home() {
           <Categories />
           <ProductGrid />
           <Brands />
+          <FAQ />
         </main>
         <Footer />
 
