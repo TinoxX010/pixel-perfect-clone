@@ -240,7 +240,7 @@ export const PRODUCTS: Product[] = [
     color: "#0b0b0b",
     description:
       "Auriculares JBL tune 520 Bluetooth",
-    image: "/assets/images/auriculargrandes.jpg",
+    image: "/assets/images/auriculargrande.jpg",
     isNew: true,
     isOffer: true,
  },  
