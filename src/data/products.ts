@@ -417,7 +417,7 @@ export const PRODUCTS: Product[] = [
     isOffer: true,
   },
   {
-    id: ,
+    id: 19,
     name: "Cable Iphone carga rapida",
     brand: "Apple",
     category: "cables",
