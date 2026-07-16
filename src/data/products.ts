@@ -43,7 +43,6 @@ export interface Product {
 }
 
 export const CATEGORIES = [
-  { slug: "fundas", label: "Fundas", icon: "shield" },
   { slug: "cargadores", label: "Cargadores", icon: "zap" },
   { slug: "auriculares", label: "Auriculares", icon: "headphones" },
   { slug: "power-bank", label: "Power Bank", icon: "battery-charging" },
