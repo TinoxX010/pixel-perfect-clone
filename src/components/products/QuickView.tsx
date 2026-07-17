@@ -28,7 +28,7 @@ export function QuickView() {
 
         <div className="grid md:grid-cols-2 gap-0">
        {/* Image */}
-<div className="relative h-[220px] sm:h-[280px] md:h-auto bg-gradient-brand-soft grid place-items-center">
+     <div className="relative aspect-square md:aspect-auto bg-gradient-brand-soft grid place-items-center min-h-[300px]">
             <div className="absolute inset-6 rounded-2xl bg-gradient-brand-soft blur-2xl opacity-70" aria-hidden />
             <img
               src={p.image}
