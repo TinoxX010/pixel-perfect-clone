@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
 import { formatPrice } from "@/lib/format";
+import { CheckoutModal } from "@/components/CheckoutModal";
 
 /** CartDrawer — drawer lateral con items, controles de cantidad y total. */
 export function CartDrawer() {
   const { isCartOpen, setCartOpen, cart, cartTotal, updateQty, removeFromCart, clearCart } = useShop();
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
   if (!isCartOpen) return null;
 
   return (
@@ -57,9 +60,11 @@ export function CartDrawer() {
               <span className="text-2xl font-black text-gradient-brand">{formatPrice(cartTotal)}</span>
             </div>
             <button className="btn-brand w-full rounded-full py-3 text-sm">Finalizar compra</button>
-            <button onClick={clearCart} className="w-full rounded-full py-2 text-xs text-muted-foreground hover:text-foreground">
-              Vaciar carrito
-            </button>
+            <button onClick={() => setCheckoutOpen(true)}
+  className="btn-brand w-full rounded-full py-3 text-sm"
+>
+  Finalizar compra
+</button>
           </footer>
         )}
       </aside>
