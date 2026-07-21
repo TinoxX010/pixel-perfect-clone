@@ -66,6 +66,10 @@ export function CartDrawer() {
           </footer>
         )}
       </aside>
+      <CheckoutModal
+  open={checkoutOpen}
+  onClose={() => setCheckoutOpen(false)}
+  onConfirm={() => {}}/>
     </div>
   );
 }
