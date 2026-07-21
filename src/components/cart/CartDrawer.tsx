@@ -8,6 +8,41 @@ import { CheckoutModal } from "@/components/CheckoutModal";
 export function CartDrawer() {
   const { isCartOpen, setCartOpen, cart, cartTotal, updateQty, removeFromCart, clearCart } = useShop();
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const handleCheckout = (payment: string, notes: string) => {
+  const message = `
+🛒 *Hola IBITE, quiero realizar el siguiente pedido:*
+
+${cart
+  .map(
+    ({ product, qty }) => `
+📦 *${product.name}*
+• Marca: ${product.brand}
+• Cantidad: ${qty}
+• Precio: ${formatPrice(product.price * qty)}
+`
+  )
+  .join("\n")}
+
+━━━━━━━━━━━━━━━
+
+💰 *Total:* ${formatPrice(cartTotal)}
+
+💳 *Forma de pago:* ${payment}
+
+📝 *Observaciones:*
+${notes.trim() || "Sin observaciones."}
+
+¡Muchas gracias!
+`;
+
+  const url =
+    "https://wa.me/5492215749478?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+
+  setCheckoutOpen(false);
+};
   if (!isCartOpen) return null;
 
   return (
@@ -66,10 +101,11 @@ export function CartDrawer() {
           </footer>
         )}
       </aside>
-      <CheckoutModal
+<CheckoutModal
   open={checkoutOpen}
   onClose={() => setCheckoutOpen(false)}
-  onConfirm={() => {}}/>
+  onConfirm={handleCheckout}
+/>
     </div>
   );
 }
