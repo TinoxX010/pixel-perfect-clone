@@ -53,11 +53,11 @@ export const CATEGORIES = [
 ] as const;
 
 export const BRANDS = [
-  "Apple", "Samsung", "Motorola", "Huawei", "JBL", "Xiaomi", "TXME"
+  "Apple", "Samsung", "Motorola", "Huawei", "JBL", "Xiaomi", "TXME", "Redmi"
 ] as const;
 
 export const COMPATIBILITY = [
-  "iPhone", "Samsung", "Moto G", "Moto Edge", "Redmi", "Universal",
+  "iPhone", "Samsung", "Moto G", "Moto Edge", "Redmi", "Universal", "Redmi"
 ] as const;
 
 export const COLOR_SWATCHES = [
@@ -470,6 +470,44 @@ export const PRODUCTS: Product[] = [
     description:
     "Lapiz tactil UNIVERSAL de mucha comodidad",
     image: "/assets/images/universalpincel.jpg",
+    isNew: true,
+    isOffer: true,
+  },
+      {
+    id: 22  ,
+    name: "Redmi Buds 8 Active",
+    brand: "Redmi",
+    category: "auriculares",
+    compatibility: "Universal",
+    price: 44990,
+    oldPrice: 50000,
+    stock: 5,
+    rating: 5,
+    reviews: 10,
+    material: "Plastico Premium",
+    color: "#0b0b0b",
+    description:
+    "Auriculares Redmi Buds 8 active, duracion de 38H",
+    image: "/assets/images/aurisnegrosbuds6plyt.jpg",
+    isNew: true,
+    isOffer: true,
+  },
+        {
+    id: 23  ,
+    name: "Redmi 6 Play",
+    brand: "Redmi",
+    category: "auriculares",
+    compatibility: "Universal",
+    price: 33990,
+    oldPrice: 40000,
+    stock: 10,
+    rating: 5,
+    reviews: 17,
+    material: "Plastico Premium",
+    color: "#0b0b0b",
+    description:
+    "Auriculares Redmi Buds 6 play, duracion de 38H",
+    image: "/assets/images/aurispromax.jpg",
     isNew: true,
     isOffer: true,
   },
