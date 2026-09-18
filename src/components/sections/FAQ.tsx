@@ -2,7 +2,7 @@ export function FAQ() {
   const preguntas = [
     {
       pregunta: "¿Hacen envíos?",
-      respuesta: "Sí, realizamos envíos a toda Argentina pro max."
+      respuesta: "Sí, realizamos envíos a toda Argentina."
     },
     {
       pregunta: "¿Qué medios de pago aceptan?",
