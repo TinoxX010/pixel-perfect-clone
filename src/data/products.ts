@@ -208,7 +208,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 8,
     name: "Smartwatch Deportivo Inteligente",
-    brand: "Samsumg",
+    brand: "Samsung",
     category: "smartwatch",
     compatibility: "Universal",
     price: 85000,
@@ -246,7 +246,7 @@ export const PRODUCTS: Product[] = [
  {
     id: 10,
     name: "Auriculares In-ear Gamer",
-    brand: "Samsumg",
+    brand: "Samsung",
     category: "auriculares",
     compatibility: "Universal",
     price: 28000,
@@ -305,7 +305,7 @@ export const PRODUCTS: Product[] = [
  {
     id: 13,
     name: "Cargador De Pared CABEZAL",
-    brand: "Samsumg",
+    brand: "Samsung",
     category: "cargadores",
     compatibility: "iphone",
     price: 19999,
@@ -324,7 +324,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 14,
     name: "Cargador USB C, Carga rapida",
-    brand: "Samsumg",
+    brand: "Samsung",
     category: "cargadores",
     compatibility: "Universal",
     price: 25000,
@@ -362,7 +362,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 16,
     name: "Xiaomi Power-Bank 10000mah",
-    brand: "Xiami",
+    brand: "Xiaomi",
     category: "power-bank",
     compatibility: "Universal",
     price: 75000,
@@ -381,7 +381,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 17,
     name: "Cargador Samsumg CARGA RAPIDA",
-    brand: "Samsumg",
+    brand: "Samsung",
     category: "cargadores",
     compatibility: "Universal",
     price: 90000,
@@ -400,7 +400,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 18,
     name: "Cargador Portatil larga duracion",
-    brand: "univeral",
+    brand: "universal",
     category: "power-bank",
     compatibility: "Universal",
     price: 45000,
@@ -510,5 +510,24 @@ export const PRODUCTS: Product[] = [
     image: "/assets/images/aurispromax.jpg",
     isNew: true,
     isOffer: true,
+  },
+          {
+    id: 24  ,
+    name: "Cable USB a C Samsung",
+    brand: "Samsung",
+    category: "cables",
+    compatibility: "Universal",
+    price: 19990,
+    oldPrice: 19990,
+    stock: 4,
+    rating: 5,
+    reviews: 20,
+    material: "Silicona Premium",
+    color: "#0b0b0b",
+    description:
+    "Cable Samsung USB a C Original",
+    image: "/assets/images/usbcablesamsumg.jpg",
+    isNew: true,
+    isOffer: false,
   },
   ];
