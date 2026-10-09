@@ -7,6 +7,8 @@ import { FloatingButtons } from "@/components/layout/FloatingButtons";
 import { Hero } from "@/components/sections/Hero";
 import { Categories } from "@/components/sections/Categories";
 import { Brands } from "@/components/sections/Brands";
+import { Offers } from "@/components/sections/Offers";
+import { NewProducts } from "@/components/sections/NewProducts";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { QuickView } from "@/components/products/QuickView";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -34,6 +36,8 @@ function Home() {
           <Hero />
           <Categories />
           <ProductGrid />
+          <Offers />
+          <NewProducts />
           <Brands />
           <FAQ />
         </main>
