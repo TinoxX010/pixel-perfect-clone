@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FAQ } from "@/components/sections/FAQ";
+import { ShippingSection } from "@/components/shipping/ShippingSection";
 import { ShopProvider } from "@/context/ShopContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -40,6 +41,7 @@ function Home() {
           <NewProducts />
           <Brands />
           <FAQ />
+          <ShippingSection />
         </main>
         <Footer />
 

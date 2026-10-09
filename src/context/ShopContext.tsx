@@ -61,6 +61,18 @@ interface ShopState {
   isSearchOpen: boolean; setSearchOpen: (b: boolean) => void;
   isMenuOpen: boolean; setMenuOpen: (b: boolean) => void;
   quickViewProduct: Product | null; setQuickViewProduct: (p: Product | null) => void;
+  // Shipping (dirección elegida en el mapa)
+  shipping: ShippingSelection | null;
+  setShipping: (s: ShippingSelection | null) => void;
+}
+
+/** Selección de envío. `cost: null` = no confirmado (zona sin precio o fuera de cobertura). */
+export interface ShippingSelection {
+  address: string;
+  locality: string;
+  zoneId: string | null;
+  zoneName: string | null;
+  cost: number | null;
 }
 
 const ShopContext = createContext<ShopState | null>(null);
@@ -94,6 +106,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [shipping, setShipping] = useState<ShippingSelection | null>(null);
 
   // ---------- Cart ----------
   const addToCart = useCallback((product: Product, qty = 1) => {
@@ -148,6 +161,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     isSearchOpen, setSearchOpen,
     isMenuOpen, setMenuOpen,
     quickViewProduct, setQuickViewProduct,
+    shipping, setShipping,
   };
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 }
