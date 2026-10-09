@@ -121,8 +121,6 @@ export const PRODUCTS: Product[] = [
     reviews: 30,
     material: "Plástico premium",
     color: "#0b0b0b",
-    color: "#ffffff",
-    color: "#ec4899",
     description:
       "Auriculares in-ear con cancelación activa de ruido, hasta 40h de batería y sonido JBL Pure Bass.",
     image: "/assets/images/redmibudsa6.jpg",
@@ -256,8 +254,6 @@ export const PRODUCTS: Product[] = [
     reviews: 14,
     material: "Plastico Premium",
     color: "#ffffff",
-    color: "#0b0b0b",
-    color: "#ec4899",
     description:
       "Auriculares In-Ear Gamers Inalambricos con Bluetooth,CELESTE, BLANCO, ROSA Y NEGRO",
     image: "/assets/images/auricularesineargamer.jpg",
