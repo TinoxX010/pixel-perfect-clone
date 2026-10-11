@@ -25,13 +25,13 @@ export function ShippingMap({ point, onPick }: Props) {
       const L = (await import("leaflet")).default;
       await import("leaflet/dist/leaflet.css");
       if (cancelled || !containerRef.current || mapRef.current) return;
-      const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(MAP_CENTER, 11);
+      const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(MAP_CENTER, 12);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
-      // Dibuja de menor a mayor prioridad para que la prioritaria quede arriba
-      [...SHIPPING_ZONES].reverse().forEach((z) => {
+      // Zonas sin superposición: comparten bordes
+      SHIPPING_ZONES.forEach((z) => {
         L.polygon(z.polygon, { color: z.color, weight: 2, fillColor: z.color, fillOpacity: 0.25 })
           .bindTooltip(`${z.name}${z.price !== null ? ` — $${z.price.toLocaleString("es-AR")}` : ""}`, { sticky: true })
           .addTo(map);
