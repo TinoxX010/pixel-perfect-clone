@@ -1,9 +1,9 @@
 /**
  * Zonas de envío — configuración ÚNICA (mapa, cálculo y carrito leen de acá).
  *
- * Regla de superposición: el ORDEN del array define la prioridad.
- * La primera zona cuyo polígono contiene el punto gana → una dirección
- * nunca recibe dos precios. Orden: Roja (centro) → Azul (norte) → Rosa (resto).
+ * Los polígonos son irregulares y NO se superponen: comparten bordes
+ * (vértices marcados "compartido"). Si movés un vértice compartido,
+ * movelo en las dos zonas. Coordenadas [lat, lng] reales de OpenStreetMap.
  *
  * ⚠️ Polígonos APROXIMADOS (`verified: false`). Puntos a confirmar:
  *  - Zona Azul: límite oeste de Arturo Seguí y norte de Villa Elisa.
@@ -29,14 +29,16 @@ export const SHIPPING_ZONES: ShippingZone[] = [
     verified: false,
     info: "Centro de La Plata (casco urbano) y Los Hornos.",
     polygon: [
-      [-34.902, -57.96],
-      [-34.933, -57.926],
-      [-34.952, -57.952],
-      [-34.975, -57.975],
-      [-34.985, -58.005],
-      [-34.962, -58.025],
-      [-34.94, -58.0],
-      [-34.9185, -57.987],
+      [-34.893, -57.948], // Av. 1 y 32 (vértice norte del casco)
+      [-34.917, -57.917], // Av. 1 y 72 (vértice este)
+      [-34.945, -57.948], // 31 y 72 (vértice sur)
+      [-34.952, -57.958], // borde norte del Cementerio (límite con Rosa)
+      [-34.965, -57.975], // Los Hornos — sur
+      [-34.985, -57.995], // Los Hornos — límite sur ⚠️ confirmar
+      [-34.97, -58.02], // Los Hornos — oeste
+      [-34.945, -57.995],
+      [-34.921, -57.982], // 31 y 32 (vértice oeste del casco)
+      [-34.905, -57.965], // límite con Hernández (Azul)
     ],
   },
   {
@@ -47,15 +49,17 @@ export const SHIPPING_ZONES: ShippingZone[] = [
     verified: false,
     info: "Villa Elisa, Arturo Seguí, Gonnet, City Bell y Hernández.",
     polygon: [
-      [-34.83, -58.06],
-      [-34.835, -58.1],
-      [-34.87, -58.155],
-      [-34.91, -58.14],
-      [-34.925, -58.06],
-      [-34.915, -58.0],
-      [-34.9, -57.97],
-      [-34.88, -57.985],
-      [-34.86, -58.01],
+      [-34.825, -58.075], // Villa Elisa — norte ⚠️ confirmar
+      [-34.84, -58.11], // Villa Elisa — oeste (límite con Rosa)
+      [-34.87, -58.15], // Arturo Seguí — oeste ⚠️ confirmar
+      [-34.905, -58.14], // Arturo Seguí — sur
+      [-34.915, -58.075], // El Rincón — sur
+      [-34.925, -58.015], // Hernández — sur
+      [-34.921, -57.982], // compartido con Roja
+      [-34.905, -57.965], // compartido con Roja
+      [-34.893, -57.948], // compartido con Roja
+      [-34.865, -57.99], // Gonnet — este
+      [-34.835, -58.035], // City Bell — norte
     ],
   },
   {
@@ -66,34 +70,38 @@ export const SHIPPING_ZONES: ShippingZone[] = [
     verified: false,
     info: "Zona del Cementerio, hasta El Pato y la Rotonda de Alpargatas (área intermedia incluida).",
     polygon: [
-      [-34.82, -58.12],
-      [-34.84, -58.22],
-      [-34.9, -58.22],
-      [-34.96, -58.15],
-      [-35.0, -58.06],
-      [-35.0, -57.97],
-      [-34.97, -57.93],
-      [-34.94, -57.9],
-      [-34.905, -57.93],
-      [-34.88, -57.97],
-      [-34.85, -58.0],
-      [-34.825, -58.05],
+      [-34.84, -58.11], // compartido con Azul
+      [-34.825, -58.2], // más allá de la Rotonda de Alpargatas ⚠️ confirmar
+      [-34.88, -58.215], // El Pato — oeste ⚠️ confirmar
+      [-34.94, -58.15],
+      [-34.995, -58.04],
+      [-34.98, -57.935], // este del Cementerio
+      [-34.945, -57.948], // compartido con Roja (desde acá sigue su borde)
+      [-34.952, -57.958],
+      [-34.965, -57.975],
+      [-34.985, -57.995],
+      [-34.97, -58.02],
+      [-34.945, -57.995],
+      [-34.921, -57.982], // compartido con Roja y Azul
+      [-34.925, -58.015], // borde sur de Azul
+      [-34.915, -58.075],
+      [-34.905, -58.14],
+      [-34.87, -58.15],
     ],
   },
 ];
 
 /**
  * Punto de partida — El Rincón.
- * ⚠️ PENDIENTE: `coords: null` hasta confirmar la dirección real del negocio.
- * Cuando esté confirmada, poner [lat, lng] y el marcador aparece solo.
+ * Calle 443 entre 139 y 140, El Rincón (Villa Elisa, La Plata).
  */
 export const START_POINT: { name: string; coords: [number, number] | null } = {
   name: "Punto de partida — El Rincón",
-  coords: null,
+  coords: [-34.8835, -58.0925], // Calle 443 e/ 139 y 140 (OpenStreetMap, aprox.)
 };
 
-/** Centro inicial del mapa (La Plata). */
-export const MAP_CENTER: [number, number] = [-34.9, -58.03];
+/** Centro inicial del mapa (El Rincón). */
+export const MAP_CENTER: [number, number] = [-34.8835, -58.0925];
 
 /** Mensaje para direcciones fuera de cobertura (mensajería a cargo del cliente). */
 export const OUT_OF_ZONE_MESSAGE =
