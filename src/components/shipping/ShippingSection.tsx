@@ -5,7 +5,7 @@
 import { lazy, Suspense, useState, type FormEvent } from "react";
 import { ClientOnly } from "@tanstack/react-router";
 import { MapPin, Search, LocateFixed, CheckCircle2, AlertTriangle, MessageCircle } from "lucide-react";
-import { SHIPPING_ZONES, OUT_OF_ZONE_MESSAGE } from "@/data/shippingZones";
+import { SHIPPING_ZONES, OUT_OF_ZONE_MESSAGE, START_POINT } from "@/data/shippingZones";
 import { findZone } from "@/lib/geo";
 import { searchAddress, reverseGeocode, type GeoResult } from "@/lib/geocoding";
 import { formatPrice } from "@/lib/format";
@@ -118,6 +118,9 @@ export function ShippingSection() {
                 </div>
               ))}
               <p className="text-[11px] text-muted-foreground pt-1">Fuera de estas zonas: envío por mensajería a cargo del cliente.</p>
+              <p className="text-[11px] text-muted-foreground">
+                🏠 {START_POINT.name}{START_POINT.coords ? "" : " (ubicación a confirmar)"}
+              </p>
             </div>
           </div>
 
@@ -148,7 +151,8 @@ function ShippingResult() {
       <p className="text-xs text-muted-foreground line-clamp-2">{shipping.address}</p>
       {shipping.locality && <p className="text-xs">Localidad: <b>{shipping.locality}</b></p>}
       {covered ? (
-        <p className="text-sm">
+        <p className="text-sm flex items-center gap-2 flex-wrap">
+          <span className="h-3 w-3 rounded-full" style={{ background: SHIPPING_ZONES.find((z) => z.id === shipping.zoneId)?.color }} />
           {shipping.zoneName} — Envío: <b className="text-gradient-brand">{shipping.cost === null ? "Precio a confirmar" : formatPrice(shipping.cost)}</b>
         </p>
       ) : (

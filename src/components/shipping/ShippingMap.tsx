@@ -4,7 +4,7 @@
  */
 import { useEffect, useRef } from "react";
 import type { Map as LeafletMap, CircleMarker } from "leaflet";
-import { SHIPPING_ZONES, MAP_CENTER } from "@/data/shippingZones";
+import { SHIPPING_ZONES, MAP_CENTER, START_POINT } from "@/data/shippingZones";
 
 interface Props {
   point: [number, number] | null;
@@ -25,17 +25,25 @@ export function ShippingMap({ point, onPick }: Props) {
       const L = (await import("leaflet")).default;
       await import("leaflet/dist/leaflet.css");
       if (cancelled || !containerRef.current || mapRef.current) return;
-      const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(MAP_CENTER, 12);
+      const map = L.map(containerRef.current, { scrollWheelZoom: false }).setView(MAP_CENTER, 11);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
-      // Dibuja de la zona más grande a la más chica para que las chicas queden arriba
+      // Dibuja de menor a mayor prioridad para que la prioritaria quede arriba
       [...SHIPPING_ZONES].reverse().forEach((z) => {
-        L.polygon(z.polygon, { color: z.color, weight: 2, fillColor: z.color, fillOpacity: 0.22 })
-          .bindTooltip(z.name, { sticky: true })
+        L.polygon(z.polygon, { color: z.color, weight: 2, fillColor: z.color, fillOpacity: 0.25 })
+          .bindTooltip(`${z.name}${z.price !== null ? ` — $${z.price.toLocaleString("es-AR")}` : ""}`, { sticky: true })
           .addTo(map);
       });
+      if (START_POINT.coords) {
+        const icon = L.divIcon({
+          className: "",
+          html: '<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#22d3ee,#a855f7);border:3px solid #fff;display:grid;place-items:center;font-size:16px;box-shadow:0 0 12px #a855f7">🏠</div>',
+          iconSize: [34, 34], iconAnchor: [17, 17],
+        });
+        L.marker(START_POINT.coords, { icon }).bindTooltip(START_POINT.name, { permanent: true, direction: "top", offset: [0, -18] }).addTo(map);
+      }
       map.on("click", (e) => onPickRef.current([e.latlng.lat, e.latlng.lng]));
       mapRef.current = map;
     })();
