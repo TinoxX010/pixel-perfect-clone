@@ -1,19 +1,19 @@
 /**
- * Zonas de envío — configuración ÚNICA (mapa + carrito leen de acá).
+ * Zonas de envío — configuración ÚNICA (mapa, cálculo y carrito leen de acá).
  *
- * ⚠️ PENDIENTE DE CONFIGURACIÓN:
- *  - `price: null` = precio aún no definido por el negocio (se muestra "A confirmar").
- *  - Los polígonos son APROXIMADOS (casco urbano de La Plata y anillos alrededor).
- *    Deben verificarse contra los límites reales (Rotonda de Alpargatas → Cementerio).
- *  - `verified: false` marca que el límite todavía no fue confirmado.
+ * Regla de superposición: el ORDEN del array define la prioridad.
+ * La primera zona cuyo polígono contiene el punto gana → una dirección
+ * nunca recibe dos precios. Orden: Roja (centro) → Azul (norte) → Rosa (resto).
  *
- * Polígonos: lista de [lat, lng]. El orden del array define la prioridad
- * (la primera zona que contiene el punto gana), por eso va de menor a mayor.
+ * ⚠️ Polígonos APROXIMADOS (`verified: false`). Puntos a confirmar:
+ *  - Zona Azul: límite oeste de Arturo Seguí y norte de Villa Elisa.
+ *  - Zona Roja: límite sur de Los Hornos.
+ *  - Zona Rosa: ubicación exacta de la Rotonda de Alpargatas y alcance hasta El Pato.
  */
 export interface ShippingZone {
   id: string;
   name: string;
-  color: string; // color hex del polígono (solo para el mapa)
+  color: string; // color hex del polígono y la leyenda
   price: number | null; // null = pendiente de configuración
   verified: boolean;
   info: string;
@@ -22,59 +22,78 @@ export interface ShippingZone {
 
 export const SHIPPING_ZONES: ShippingZone[] = [
   {
-    id: "zona-1",
-    name: "Zona 1",
-    color: "#22d3ee",
-    price: null,
+    id: "zona-roja",
+    name: "Zona Roja",
+    color: "#ef4444",
+    price: 10000,
     verified: false,
-    info: "Casco urbano de La Plata (aprox. entre Av. 1, 32, 31 y 72).",
+    info: "Centro de La Plata (casco urbano) y Los Hornos.",
     polygon: [
       [-34.902, -57.96],
       [-34.933, -57.926],
-      [-34.95, -57.953],
+      [-34.952, -57.952],
+      [-34.975, -57.975],
+      [-34.985, -58.005],
+      [-34.962, -58.025],
+      [-34.94, -58.0],
       [-34.9185, -57.987],
     ],
   },
   {
-    id: "zona-2",
-    name: "Zona 2",
-    color: "#a855f7",
-    price: null,
+    id: "zona-azul",
+    name: "Zona Azul",
+    color: "#3b82f6",
+    price: 5000,
     verified: false,
-    info: "Alrededores inmediatos del casco (Tolosa, Los Hornos, San Carlos, Villa Elvira).",
+    info: "Villa Elisa, Arturo Seguí, Gonnet, City Bell y Hernández.",
     polygon: [
-      [-34.875, -57.99],
-      [-34.88, -57.93],
-      [-34.905, -57.895],
-      [-34.94, -57.9],
-      [-34.965, -57.94],
-      [-34.96, -57.99],
-      [-34.935, -58.02],
-      [-34.9, -58.02],
+      [-34.83, -58.06],
+      [-34.835, -58.1],
+      [-34.87, -58.155],
+      [-34.91, -58.14],
+      [-34.925, -58.06],
+      [-34.915, -58.0],
+      [-34.9, -57.97],
+      [-34.88, -57.985],
+      [-34.86, -58.01],
     ],
   },
   {
-    id: "zona-3",
-    name: "Zona 3",
+    id: "zona-rosa",
+    name: "Zona Rosa",
     color: "#ec4899",
-    price: null,
+    price: 15000,
     verified: false,
-    info: "Berisso, Ensenada, Gonnet y City Bell (límite a confirmar).",
+    info: "Zona del Cementerio, hasta El Pato y la Rotonda de Alpargatas (área intermedia incluida).",
     polygon: [
-      [-34.83, -58.06],
-      [-34.84, -57.9],
-      [-34.87, -57.83],
-      [-34.93, -57.83],
-      [-35.0, -57.9],
-      [-35.01, -58.02],
-      [-34.96, -58.09],
-      [-34.88, -58.1],
+      [-34.82, -58.12],
+      [-34.84, -58.22],
+      [-34.9, -58.22],
+      [-34.96, -58.15],
+      [-35.0, -58.06],
+      [-35.0, -57.97],
+      [-34.97, -57.93],
+      [-34.94, -57.9],
+      [-34.905, -57.93],
+      [-34.88, -57.97],
+      [-34.85, -58.0],
+      [-34.825, -58.05],
     ],
   },
 ];
 
+/**
+ * Punto de partida — El Rincón.
+ * ⚠️ PENDIENTE: `coords: null` hasta confirmar la dirección real del negocio.
+ * Cuando esté confirmada, poner [lat, lng] y el marcador aparece solo.
+ */
+export const START_POINT: { name: string; coords: [number, number] | null } = {
+  name: "Punto de partida — El Rincón",
+  coords: null,
+};
+
 /** Centro inicial del mapa (La Plata). */
-export const MAP_CENTER: [number, number] = [-34.921, -57.955];
+export const MAP_CENTER: [number, number] = [-34.9, -58.03];
 
 /** Mensaje para direcciones fuera de cobertura (mensajería a cargo del cliente). */
 export const OUT_OF_ZONE_MESSAGE =

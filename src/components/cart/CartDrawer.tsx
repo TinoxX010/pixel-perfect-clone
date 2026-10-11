@@ -6,8 +6,15 @@ import { CheckoutModal } from "@/components/CheckoutModal";
 
 /** CartDrawer — drawer lateral con items, controles de cantidad y total. */
 export function CartDrawer() {
-  const { isCartOpen, setCartOpen, cart, cartTotal, updateQty, removeFromCart, clearCart } = useShop();
+  const { isCartOpen, setCartOpen, cart, cartTotal, updateQty, removeFromCart, shipping } = useShop();
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const shippingCost = shipping?.cost ?? 0;
+  const orderTotal = cartTotal + shippingCost;
+  const shippingLine = !shipping
+    ? "A coordinar"
+    : shipping.cost !== null
+      ? `${shipping.zoneName} — ${formatPrice(shipping.cost)} (${shipping.address})`
+      : `Mensajería a cargo del cliente (${shipping.address})`;
   const handleCheckout = (payment: string, notes: string) => {
   const message = `
 🛒 *Hola IBITE, quiero realizar el siguiente pedido:*
@@ -25,7 +32,9 @@ ${cart
 
 ━━━━━━━━━━━━━━━
 
-💰 *Total:* ${formatPrice(cartTotal)}
+🧾 *Subtotal:* ${formatPrice(cartTotal)}
+🚚 *Envío:* ${shippingLine}
+💰 *Total:* ${formatPrice(orderTotal)}
 
 💳 *Forma de pago:* ${payment}
 
@@ -90,9 +99,13 @@ ${notes.trim() || "Sin observaciones."}
 
         {cart.length > 0 && (
           <footer className="border-t border-border p-4 space-y-3">
+            <div className="flex justify-between text-sm text-muted-foreground">
+              <span>Envío</span>
+              <span>{shipping ? (shipping.cost !== null ? formatPrice(shipping.cost) : "Mensajería a cargo del cliente") : "Elegí tu zona en el mapa"}</span>
+            </div>
             <div className="flex items-baseline justify-between">
               <span className="text-sm text-muted-foreground">Total</span>
-              <span className="text-2xl font-black text-gradient-brand">{formatPrice(cartTotal)}</span>
+              <span className="text-2xl font-black text-gradient-brand">{formatPrice(orderTotal)}</span>
             </div>
             <button onClick={() => setCheckoutOpen(true)}
   className="btn-brand w-full rounded-full py-3 text-sm">
