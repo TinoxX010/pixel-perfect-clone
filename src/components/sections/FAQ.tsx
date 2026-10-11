@@ -9,12 +9,8 @@ export function FAQ() {
       respuesta: "Aceptamos efectivo, transferencia, tarjetas de débito y crédito."
     },
     {
-      pregunta: "¿Los productos tienen garantía?",
-      respuesta: "Sí, todos poseen garantía solo por fallas de fabricación o envio."
-    },
-    {
       pregunta: "¿Cuánto demora el envío?",
-      respuesta: "Entre 2 y 5 días hábiles según tu ubicación."
+      respuesta: "Entre 48hs a 72hs hábiles según tu ubicación."
     },
     {
       pregunta: "¿Cómo me contacto?",
