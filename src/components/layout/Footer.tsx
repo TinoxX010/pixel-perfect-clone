@@ -23,10 +23,9 @@ export function Footer() {
         <FooterCol
           title="Ayuda"
           links={[
-            { label: "Envíos", href: "#faq" },
-            { label: "Cambios", href: "#faq" },
             { label: "Contacto", href: "#contacto" },
-            { label: "FAQ", href: "#faq" },
+            { label: "Envíos", href: "#faq" },
+            { label: "Preguntas Frecuentes", href: "#faq" },
           ]}
         />
 
