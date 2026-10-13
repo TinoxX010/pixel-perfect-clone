@@ -10,7 +10,12 @@ export function CartDrawer() {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const shippingCost = shipping?.cost ?? 0;
   const orderTotal = cartTotal + shippingCost;
-  if (!isCartOpen) return null;
+
+  // El checkout vive fuera del drawer: se abre al cerrar el carrito
+  // y no debe desmontarse cuando el carrito se cierra.
+  if (!isCartOpen) {
+    return <CheckoutFlow open={checkoutOpen} onClose={() => setCheckoutOpen(false)} />;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal>
