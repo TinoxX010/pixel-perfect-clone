@@ -22,26 +22,6 @@ export interface ShippingZone {
 
 export const SHIPPING_ZONES: ShippingZone[] = [
   {
-    id: "zona-roja",
-    name: "Zona Roja",
-    color: "#ef4444",
-    price: 10000,
-    verified: false,
-    info: "Centro de La Plata (casco urbano) y Los Hornos.",
-    polygon: [
-      [-34.893, -57.948], // Av. 1 y 32 (vértice norte del casco)
-      [-34.917, -57.917], // Av. 1 y 72 (vértice este)
-      [-34.945, -57.948], // 31 y 72 (vértice sur)
-      [-34.952, -57.958], // borde norte del Cementerio (límite con Rosa)
-      [-34.965, -57.975], // Los Hornos — sur
-      [-34.985, -57.995], // Los Hornos — límite sur ⚠️ confirmar
-      [-34.97, -58.02], // Los Hornos — oeste
-      [-34.945, -57.995],
-      [-34.921, -57.982], // 31 y 32 (vértice oeste del casco)
-      [-34.905, -57.965], // límite con Hernández (Azul)
-    ],
-  },
-  {
     id: "zona-azul",
     name: "Zona Azul",
     color: "#3b82f6",
@@ -60,6 +40,26 @@ export const SHIPPING_ZONES: ShippingZone[] = [
       [-34.893, -57.948], // compartido con Roja
       [-34.865, -57.99], // Gonnet — este
       [-34.835, -58.035], // City Bell — norte
+    ],
+  },
+  {
+    id: "zona-roja",
+    name: "Zona Roja",
+    color: "#ef4444",
+    price: 10000,
+    verified: false,
+    info: "Centro de La Plata (casco urbano) y Los Hornos.",
+    polygon: [
+      [-34.893, -57.948], // Av. 1 y 32 (vértice norte del casco)
+      [-34.917, -57.917], // Av. 1 y 72 (vértice este)
+      [-34.945, -57.948], // 31 y 72 (vértice sur)
+      [-34.952, -57.958], // borde norte del Cementerio (límite con Rosa)
+      [-34.965, -57.975], // Los Hornos — sur
+      [-34.985, -57.995], // Los Hornos — límite sur ⚠️ confirmar
+      [-34.97, -58.02], // Los Hornos — oeste
+      [-34.945, -57.995],
+      [-34.921, -57.982], // 31 y 32 (vértice oeste del casco)
+      [-34.905, -57.965], // límite con Hernández (Azul)
     ],
   },
   {
