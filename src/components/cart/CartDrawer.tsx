@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
 import { formatPrice } from "@/lib/format";
-import { CheckoutModal } from "@/components/CheckoutModal";
+import { CheckoutFlow } from "@/components/checkout/CheckoutFlow";
 
 /** CartDrawer — drawer lateral con items, controles de cantidad y total. */
 export function CartDrawer() {
