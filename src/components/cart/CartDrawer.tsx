@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
 import { formatPrice } from "@/lib/format";
-import { CheckoutModal } from "@/components/CheckoutModal";
+import { CheckoutFlow } from "@/components/checkout/CheckoutFlow";
 
 /** CartDrawer — drawer lateral con items, controles de cantidad y total. */
 export function CartDrawer() {
@@ -10,49 +10,12 @@ export function CartDrawer() {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const shippingCost = shipping?.cost ?? 0;
   const orderTotal = cartTotal + shippingCost;
-  const shippingLine = !shipping
-    ? "A coordinar"
-    : shipping.cost !== null
-      ? `${shipping.zoneName} — ${formatPrice(shipping.cost)} (${shipping.address})`
-      : `Mensajería a cargo del cliente (${shipping.address})`;
-  const handleCheckout = (payment: string, notes: string) => {
-  const message = `
-🛒 *Hola IBITE, quiero realizar el siguiente pedido:*
 
-${cart
-  .map(
-    ({ product, qty }) => `
-📦 *${product.name}*
-• Marca: ${product.brand}
-• Cantidad: ${qty}
-• Precio: ${formatPrice(product.price * qty)}
-`
-  )
-  .join("\n")}
-
-━━━━━━━━━━━━━━━
-
-🧾 *Subtotal:* ${formatPrice(cartTotal)}
-🚚 *Envío:* ${shippingLine}
-💰 *Total:* ${formatPrice(orderTotal)}
-
-💳 *Forma de pago:* ${payment}
-
-📝 *Observaciones:*
-${notes.trim() || "Sin observaciones."}
-
-¡Muchas gracias!
-`;
-
-  const url =
-    "https://wa.me/5492215749478?text=" +
-    encodeURIComponent(message);
-
-  window.open(url, "_blank");
-
-  setCheckoutOpen(false);
-};
-  if (!isCartOpen) return null;
+  // El checkout vive fuera del drawer: se abre al cerrar el carrito
+  // y no debe desmontarse cuando el carrito se cierra.
+  if (!isCartOpen) {
+    return <CheckoutFlow open={checkoutOpen} onClose={() => setCheckoutOpen(false)} />;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal>
@@ -107,17 +70,16 @@ ${notes.trim() || "Sin observaciones."}
               <span className="text-sm text-muted-foreground">Total</span>
               <span className="text-2xl font-black text-gradient-brand">{formatPrice(orderTotal)}</span>
             </div>
-            <button onClick={() => setCheckoutOpen(true)}
-  className="btn-brand w-full rounded-full py-3 text-sm">
-  Finalizar compra
+            <button onClick={() => { setCartOpen(false); setCheckoutOpen(true); }}
+   className="btn-brand w-full rounded-full py-3 text-sm">
+   Finalizar compra
 </button>
           </footer>
         )}
       </aside>
-<CheckoutModal
+<CheckoutFlow
   open={checkoutOpen}
   onClose={() => setCheckoutOpen(false)}
-  onConfirm={handleCheckout}
 />
     </div>
   );
