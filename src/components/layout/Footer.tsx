@@ -23,9 +23,10 @@ export function Footer() {
         <FooterCol
           title="Ayuda"
           links={[
-            { label: "Contacto", href: "#contacto", className: "text-red-500" },
-            { label: "Envíos", href: "#faq", className: "text-green-500" },
-            { label: "Preguntas frecuentes", href: "#faq" },
+            { label: "Envíos", href: "#faq" },
+            { label: "Cambios", href: "#faq" },
+            { label: "Contacto", href: "#contacto" },
+            { label: "FAQ", href: "#faq" },
           ]}
         />
 
