@@ -65,9 +65,9 @@ export function CartDrawer() {
               <span className="text-sm text-muted-foreground">Total</span>
               <span className="text-2xl font-black text-gradient-brand">{formatPrice(orderTotal)}</span>
             </div>
-            <button onClick={() => setCheckoutOpen(true)}
-  className="btn-brand w-full rounded-full py-3 text-sm">
-  Finalizar compra
+            <button onClick={() => { setCartOpen(false); setCheckoutOpen(true); }}
+   className="btn-brand w-full rounded-full py-3 text-sm">
+   Finalizar compra
 </button>
           </footer>
         )}
