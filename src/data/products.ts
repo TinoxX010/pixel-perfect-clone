@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Accesorio premium Bateria Magnetica de Apple, Power-Bank con MagSafe",
     image: "/assets/images/magsafeiphoneportatil.jpg",
-    isNew: true,
+    isNew: false,
     isOffer: false,
   },
   {
@@ -105,8 +105,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Cargador ultra-rápido GaN 30W con doble USB-C. Carga tu celular y tablet con un solo dispositivo.",
     image: "/assets/images/cargadormarcarara.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 3,
@@ -124,8 +124,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Auriculares in-ear con cancelación activa de ruido, hasta 40h de batería y sonido JBL Pure Bass.",
     image: "/assets/images/redmibudsa6.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 4,
@@ -143,8 +143,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Parlante JBL GO Essential Perfecto para trnasportar y con potencia espectacular!.",
     image: "/assets/images/jblparlantechiquito.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 5,
@@ -162,8 +162,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Cable trenzado ultra resistente, carga rápida hasta 20W. Compatible con toda la línea iPhone y iPad.",
     image: "/assets/images/cargadorcompletodeiphone.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 6,
@@ -181,8 +181,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Reloj inteligente con AMOLED 1.6\", 100+ modos de deporte, GPS y hasta 13 días de batería.",
     image: "/assets/images/relojinteligentesamsumg.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 7,
@@ -200,8 +200,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Reloj Inteligente perfecto para Deportes",
     image: "/assets/images/relojlindosmart.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 8,
@@ -219,8 +219,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Reloj Inteligente perfecto para Deportes, con Nicton NT07 Android IOS",
     image: "/assets/images/smartwatchdeportivo.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 9,
@@ -238,8 +238,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Auriculares JBL tune 520 Bluetooth",
     image: "/assets/images/auriculargrande.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
  },  
  {
     id: 10,
@@ -257,8 +257,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Auriculares In-Ear Gamers Inalambricos con Bluetooth,CELESTE, BLANCO, ROSA Y NEGRO",
     image: "/assets/images/auricularesineargamer.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },  
  {
     id: 11,
@@ -276,8 +276,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Adaptador De Enchufe Universal Para Viajes: Americano, Europeo, Australiano y UK",
     image: "/assets/images/adaptador.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },  
  {
     id: 12,
@@ -295,8 +295,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Auriculares Foxconn ORIGINALES para Iphone",
     image: "/assets/images/auricularesdecableiphone.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
      },  
  {
     id: 13,
@@ -314,8 +314,8 @@ export const PRODUCTS: Product[] = [
     description:
       "Cargador de Pares USB carga rapida para Iphone/Samsumg Fast",
     image: "/assets/images/cargadordepared.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
    },
   {
     id: 14,
@@ -333,8 +333,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cargador Carga Rapido usb tipo C 5v",
     image: "/assets/images/enchufedeiphone.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 15,
@@ -352,8 +352,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cargador Iphone Magnetico Blanco 15W Carga rapida",
     image: "/assets/images/cargadorinalambricoiphone.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 16,
@@ -371,8 +371,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cargador Portatil Xiaomi, CABLE INCLUIDO, 10.000mah",
     image: "/assets/images/powerbanksiaomi.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 17,
@@ -390,8 +390,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cargador Samsumg original ficha C, 25w",
     image: "/assets/images/cargadorsuperrapido.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 18,
@@ -409,8 +409,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cargador portatil larga duracion 2 puertos USB",
     image: "/assets/images/cargadorportatillargaduracion.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 19,
@@ -428,8 +428,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Cable C a C para Iphone, carga rapido",
     image: "/assets/images/calbeusbblanco.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
   {
     id: 20,
@@ -447,8 +447,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Auricular P47 mucha comodidad",
     image: "/assets/images/p47auris.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
     {
     id: 21  ,
@@ -466,8 +466,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Lapiz tactil UNIVERSAL de mucha comodidad",
     image: "/assets/images/universalpincel.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
       {
     id: 22  ,
@@ -485,8 +485,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Auriculares Redmi Buds 8 active, duracion de 38H",
     image: "/assets/images/aurisnegrosbuds6plyt.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
         {
     id: 23  ,
@@ -504,8 +504,8 @@ export const PRODUCTS: Product[] = [
     description:
     "Auriculares Redmi Buds 6 play, duracion de 38H",
     image: "/assets/images/aurispromax.jpg",
-    isNew: true,
-    isOffer: true,
+    isNew: false,
+    isOffer: false,
   },
           {
     id: 24  ,
@@ -523,7 +523,7 @@ export const PRODUCTS: Product[] = [
     description:
     "Cable Samsung USB a C Original",
     image: "/assets/images/usbcablesamsumg.jpg",
-    isNew: true,
+    isNew: false,
     isOffer: false,
   },
             {
@@ -542,7 +542,7 @@ export const PRODUCTS: Product[] = [
     description:
     "Auriculares de cable Samsung tipo C",
     image: "/assets/images/auricablesamsumg.jpg",
-    isNew: true,
+    isNew: false,
     isOffer: false,
   },
               {
@@ -561,7 +561,7 @@ export const PRODUCTS: Product[] = [
     description:
     "Auriculares bluetooth.",
     image: "/assets/images/aurisgrandesnegros.jpeg",
-    isNew: true,
+    isNew: false,
     isOffer: false,
   },
   ];
