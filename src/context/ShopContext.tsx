@@ -73,6 +73,12 @@ export interface ShippingSelection {
   zoneId: string | null;
   zoneName: string | null;
   cost: number | null;
+  // Checkout: coordenadas reales del punto elegido y datos de contacto
+  lat?: number | null;
+  lng?: number | null;
+  name?: string;
+  phone?: string;
+  details?: string;
 }
 
 const ShopContext = createContext<ShopState | null>(null);
