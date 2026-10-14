@@ -34,6 +34,9 @@
   --color-violet-neon: var(--violet-neon);
   --color-magenta-neon: var(--magenta-neon);
   --color-lime-neon: var(--lime-neon);
+  --color-footer-contact: var(--footer-contact);
+  --color-footer-shipping: var(--footer-shipping);
+  --color-footer-faq: var(--footer-faq);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -82,6 +85,10 @@
   --violet-neon: oklch(0.66 0.24 285);
   --magenta-neon: oklch(0.72 0.24 340);
   --lime-neon: oklch(0.9 0.22 135);
+  /* Scoped Ayuda link roles; the general palette remains unchanged. */
+  --footer-contact: oklch(0.74 0.18 25);
+  --footer-shipping: oklch(0.8 0.18 145);
+  --footer-faq: oklch(0.78 0.17 295);
 
   /* Signature gradients */
   --gradient-brand: linear-gradient(

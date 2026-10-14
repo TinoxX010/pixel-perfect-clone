@@ -21,6 +21,15 @@
  *  - image          : ruta de la imagen
  *  - isNew          : muestra badge "NUEVO"
  *  - isOffer        : incluye en la sección Ofertas
+ *
+ * Administrar Ofertas imperdibles en este mismo array:
+ *  - isOffer: true  → el producto aparece en Ofertas.
+ *  - isOffer: false → el producto NO aparece en Ofertas.
+ * Usá booleanos reales, nunca textos como "true", "false" u "off".
+ * Una propiedad ausente, vacía o inválida no habilita una oferta.
+ * Para cambiar el importe, editá price (precio actual) y, si corresponde,
+ * oldPrice (precio anterior real, mayor a price para mostrar descuento).
+ * Usá oldPrice: null si no hay precio anterior; no inventes descuentos.
  */
 
 export interface Product {

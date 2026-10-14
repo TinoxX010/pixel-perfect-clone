@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Search, ShoppingCart, Heart } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
+import { Button } from "@/components/ui/button";
 
 /** Barra promocional superior con degradado marca. */
 function TopBar() {
@@ -26,21 +27,24 @@ const NAV = [
 ];
 
 export function Header() {
-  const { cartCount, favorites, setCartOpen, setSearchOpen, setMenuOpen, isMenuOpen } = useShop();
+  const { cartCount, favorites, setCartOpen, setSearchOpen, setMenuOpen, isMenuOpen, setFavoritesOpen, isFavoritesOpen } = useShop();
 
   return (
     <header className="sticky top-0 z-40">
       <TopBar />
       <div className="glass-strong border-b border-border">
         <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-1 font-display text-2xl font-black tracking-tight">
+          <Link to="/" onClick={() => setFavoritesOpen(false)} className="flex items-center gap-1 font-display text-2xl font-black tracking-tight">
             <span className="text-foreground">i</span>
             <span className="text-gradient-brand">BITE</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7 text-sm font-medium">
             {NAV.map((n) => (
-              <a key={n.label} href={n.hash ?? "/"} className="text-muted-foreground hover:text-foreground transition-colors">
+              <a key={n.label} href={n.hash ?? "/"} onClick={() => {
+                setFavoritesOpen(false);
+                if (n.hash) requestAnimationFrame(() => document.querySelector(n.hash)?.scrollIntoView());
+              }} className="text-muted-foreground hover:text-foreground transition-colors">
                 {n.label}
               </a>
             ))}
@@ -55,8 +59,12 @@ export function Header() {
               <Search className="h-5 w-5" />
             </button>
 
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               aria-label="Favoritos"
+              aria-pressed={isFavoritesOpen}
+              onClick={() => { setFavoritesOpen(true); setMenuOpen(false); window.scrollTo({ top: 0 }); }}
               className="relative h-10 w-10 grid place-items-center rounded-full hover:bg-white/5 transition-colors"
             >
               <Heart className="h-5 w-5" />
@@ -65,7 +73,7 @@ export function Header() {
                   {favorites.length}
                 </span>
               )}
-            </button>
+            </Button>
 
             <button
               aria-label="Carrito"
@@ -97,7 +105,11 @@ export function Header() {
                 <a
                   key={n.label}
                   href={n.hash ?? "/"}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setFavoritesOpen(false);
+                    if (n.hash) requestAnimationFrame(() => document.querySelector(n.hash)?.scrollIntoView());
+                  }}
                   className="px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-white/5"
                 >
                   {n.label}
