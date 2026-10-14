@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FAQ } from "@/components/sections/FAQ";
 import { ShippingSection } from "@/components/shipping/ShippingSection";
-import { ShopProvider } from "@/context/ShopContext";
+import { ShopProvider, useShop } from "@/context/ShopContext";
+import { FavoritesSection } from "@/components/products/FavoritesSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingButtons } from "@/components/layout/FloatingButtons";
@@ -23,17 +24,24 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Fundas, cargadores, auriculares, power banks y más. envíos a todo el país." },
       { property: "og:title", content: "iBITE — Accesorios premium para tu celular" },
       { property: "og:description", content: "Fundas, cargadores, auriculares y más. envíos a todo el país." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
 });
 
 function Home() {
+  return <ShopProvider><ShopContent /></ShopProvider>;
+}
+
+function ShopContent() {
+  const { isFavoritesOpen } = useShop();
   return (
-    <ShopProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
+          {isFavoritesOpen ? <FavoritesSection /> : <>
           <Hero />
           <Categories />
           <ProductGrid />
@@ -42,6 +50,7 @@ function Home() {
           <Brands />
           <FAQ />
           <ShippingSection />
+          </>}
         </main>
         <Footer />
 
@@ -52,6 +61,5 @@ function Home() {
         <SearchModal />
         <FloatingButtons />
       </div>
-    </ShopProvider>
   );
 }

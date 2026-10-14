@@ -1,10 +1,11 @@
 import { Tag } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { ProductCard } from "@/components/products/ProductCard";
+import { isOfferProduct } from "@/lib/offers";
 
-/** Sección de ofertas — solo productos con precio original mayor al actual. */
+/** Sección de ofertas — selección explícita desde el catálogo, sin otra lista. */
 export function Offers() {
-  const offers = PRODUCTS.filter((p) => p.oldPrice !== null && p.oldPrice > p.price);
+  const offers = PRODUCTS.filter(isOfferProduct);
 
   return (
     <section id="ofertas" className="mx-auto max-w-7xl px-4 py-20">
@@ -14,7 +15,7 @@ export function Offers() {
             Ofertas <span className="text-gradient-brand">imperdibles</span>
           </h2>
           <p className="mt-2 text-muted-foreground text-sm">
-            {offers.length} {offers.length === 1 ? "producto" : "productos"} con descuento real
+            {offers.length} {offers.length === 1 ? "producto" : "productos"} en oferta
           </p>
         </div>
       </div>

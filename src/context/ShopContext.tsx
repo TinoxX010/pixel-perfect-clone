@@ -9,6 +9,7 @@
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { PRODUCTS, type Product } from "@/data/products";
+import { isOfferProduct } from "@/lib/offers";
 
 export interface CartItem { product: Product; qty: number }
 
@@ -60,6 +61,7 @@ interface ShopState {
   isFiltersOpen: boolean; setFiltersOpen: (b: boolean) => void;
   isSearchOpen: boolean; setSearchOpen: (b: boolean) => void;
   isMenuOpen: boolean; setMenuOpen: (b: boolean) => void;
+  isFavoritesOpen: boolean; setFavoritesOpen: (b: boolean) => void;
   quickViewProduct: Product | null; setQuickViewProduct: (p: Product | null) => void;
   // Shipping (dirección elegida en el mapa)
   shipping: ShippingSelection | null;
@@ -98,12 +100,17 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   // Hydrate on client after mount to avoid SSR mismatch
   const [cart, setCart] = useState<CartItem[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [storageReady, setStorageReady] = useState(false);
   useEffect(() => {
     setCart(readStorage<CartItem[]>("ibite:cart", []));
-    setFavorites(readStorage<number[]>("ibite:favs", []));
+    const savedFavorites = readStorage<unknown>("ibite:favs", []);
+    setFavorites(Array.isArray(savedFavorites)
+      ? [...new Set(savedFavorites.filter((id): id is number => typeof id === "number" && PRODUCTS.some((p) => p.id === id)))]
+      : []);
+    setStorageReady(true);
   }, []);
-  useEffect(() => { writeStorage("ibite:cart", cart); }, [cart]);
-  useEffect(() => { writeStorage("ibite:favs", favorites); }, [favorites]);
+  useEffect(() => { if (storageReady) writeStorage("ibite:cart", cart); }, [cart, storageReady]);
+  useEffect(() => { if (storageReady) writeStorage("ibite:favs", favorites); }, [favorites, storageReady]);
 
   const [filters, setFiltersState] = useState<FiltersState>(DEFAULT_FILTERS);
   const [searchQuery, setSearchQuery] = useState("");
@@ -111,6 +118,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   const [isFiltersOpen, setFiltersOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isFavoritesOpen, setFavoritesOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [shipping, setShipping] = useState<ShippingSelection | null>(null);
 
@@ -150,7 +158,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
       if (filters.colors.length && !filters.colors.includes(p.color)) return false;
       if (p.price > filters.priceMax) return false;
       if (filters.inStock && p.stock <= 0) return false;
-      if (filters.onlyOffers && !p.isOffer) return false;
+      if (filters.onlyOffers && !isOfferProduct(p)) return false;
       if (filters.onlyNew && !p.isNew) return false;
       if (q && !(`${p.name} ${p.brand} ${p.category}`.toLowerCase().includes(q))) return false;
       return true;
@@ -166,6 +174,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     isFiltersOpen, setFiltersOpen,
     isSearchOpen, setSearchOpen,
     isMenuOpen, setMenuOpen,
+    isFavoritesOpen, setFavoritesOpen,
     quickViewProduct, setQuickViewProduct,
     shipping, setShipping,
   };

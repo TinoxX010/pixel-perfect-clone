@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Search, ShoppingCart, Heart } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
+import { Button } from "@/components/ui/button";
 
 /** Barra promocional superior con degradado marca. */
 function TopBar() {
@@ -26,7 +27,7 @@ const NAV = [
 ];
 
 export function Header() {
-  const { cartCount, favorites, setCartOpen, setSearchOpen, setMenuOpen, isMenuOpen } = useShop();
+  const { cartCount, favorites, setCartOpen, setSearchOpen, setMenuOpen, isMenuOpen, setFavoritesOpen, isFavoritesOpen } = useShop();
 
   return (
     <header className="sticky top-0 z-40">
@@ -55,8 +56,12 @@ export function Header() {
               <Search className="h-5 w-5" />
             </button>
 
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               aria-label="Favoritos"
+              aria-pressed={isFavoritesOpen}
+              onClick={() => { setFavoritesOpen(true); setMenuOpen(false); window.scrollTo({ top: 0 }); }}
               className="relative h-10 w-10 grid place-items-center rounded-full hover:bg-white/5 transition-colors"
             >
               <Heart className="h-5 w-5" />
@@ -65,7 +70,7 @@ export function Header() {
                   {favorites.length}
                 </span>
               )}
-            </button>
+            </Button>
 
             <button
               aria-label="Carrito"

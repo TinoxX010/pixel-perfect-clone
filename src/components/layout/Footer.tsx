@@ -23,9 +23,9 @@ export function Footer() {
         <FooterCol
           title="Ayuda"
           links={[
-            { label: "Contacto", href: "#contacto" },
-            { label: "Envíos", href: "#faq" },
-            { label: "Preguntas Frecuentes", href: "#faq" },
+            { label: "Contacto", href: "#contacto", colorClass: "text-footer-contact" },
+            { label: "Envíos", href: "#faq", colorClass: "text-footer-shipping" },
+            { label: "Preguntas Frecuentes", href: "#faq", colorClass: "text-footer-faq" },
           ]}
         />
 
@@ -48,13 +48,13 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+function FooterCol({ title, links }: { title: string; links: { label: string; href: string; colorClass?: string }[] }) {
   return (
     <div>
       <h4 className="text-[11px] tracking-[0.25em] uppercase font-bold text-muted-foreground">{title}</h4>
       <ul className="mt-3 space-y-2 text-sm">
         {links.map((l) => (
-          <li key={l.label}><a href={l.href} className="text-muted-foreground hover:text-foreground transition-colors">{l.label}</a></li>
+          <li key={l.label}><a href={l.href} className={`${l.colorClass ?? "text-muted-foreground hover:text-foreground"} hover:brightness-125 transition-colors`}>{l.label}</a></li>
         ))}
       </ul>
     </div>

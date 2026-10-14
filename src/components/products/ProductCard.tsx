@@ -2,6 +2,7 @@ import { Heart, Eye, ShoppingCart, Star } from "lucide-react";
 import { type Product } from "@/data/products";
 import { useShop } from "@/context/ShopContext";
 import { discountPercent, formatPrice } from "@/lib/format";
+import { Button } from "@/components/ui/button";
 
 /** Tarjeta de producto compacta con hover glow, quick view y favorito. */
 export function ProductCard({ product }: { product: Product }) {
@@ -22,13 +23,17 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Fav */}
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         aria-label="Favorito"
+        aria-pressed={fav}
+        title={fav ? "Quitar de favoritos" : "Agregar a favoritos"}
         onClick={() => toggleFavorite(product.id)}
         className={`absolute top-3 right-3 z-10 h-9 w-9 grid place-items-center rounded-full glass hover:scale-110 transition-transform ${fav ? "text-accent" : ""}`}
       >
         <Heart className={`h-4 w-4 ${fav ? "fill-current" : ""}`} />
-      </button>
+      </Button>
 
       {/* Image */}
       <div className="relative aspect-square bg-gradient-brand-soft grid place-items-center overflow-hidden">
